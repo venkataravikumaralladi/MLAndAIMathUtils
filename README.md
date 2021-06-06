@@ -15,3 +15,6 @@ Data augumentation is technique used to generate images from available images th
  
  ### Image processing 
 Image processing folder consists of image processing in python. Here we will see how we can create new images with foreground images on various background images. Along with new images we also generate corresponding image mask which helps us in creating annotation required for various machine learning algorithms. (ImageProcessing/notebook/image-composition.ipynb)
+
+ ### SyntheticImageGenerator
+ Deep learning is wonderful tool which is changing the world of innovation in particular image applications. Due to the unprecedented need for massive, annotated, image datasets, we have to explore various options in additional to manual image collection and annotation. Data is extremely expensive, either in time or in money to pay others for their time in annotating images. Here we develop a tool which generates synthetic image datasets and annotate generated images in COCO format. This tool is developed by me as part of Omdena project from references mentioned in reference section of README.md in that folder.
