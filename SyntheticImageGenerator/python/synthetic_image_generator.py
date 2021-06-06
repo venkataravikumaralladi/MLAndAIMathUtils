@@ -131,7 +131,7 @@ class ImageComposition():
         self.allowed_output_types = ['.png', '.jpg', '.jpeg']
         self.allowed_background_types = ['.png', '.jpg', '.jpeg']
         self.zero_padding = 8 # 00000027.png, supports up to 100 million images
-        self.max_foregrounds = 10
+        self.max_foregrounds = 14
         # self.mask_colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
         self.mask_colors = [(255, 0, 0), # red
                             (0, 255, 0), # green
@@ -143,7 +143,11 @@ class ImageComposition():
                             (168, 34, 74), 
                             (255, 120, 73),
                             (141, 108, 159),
-                            (128, 0, 0) #maroon
+                            (128, 0, 0), #maroon
+                            (255, 0, 255), #fuchsia
+                            (0, 255, 255), # aqua
+                            (72, 61, 139),
+                            (0, 0, 139) # dark blue
                             ]
 
         assert len(self.mask_colors) >= self.max_foregrounds, 'length of mask_colors should be >= max_foregrounds'
@@ -285,7 +289,7 @@ class ImageComposition():
             # Randomly choose a background
             background_path = random.choice(self.backgrounds)
 
-            num_foregrounds = random.randint(1, self.max_foregrounds)
+            num_foregrounds = random.randint(2, self.max_foregrounds)
             foregrounds = []
             for fg_i in range(num_foregrounds):
                 # Randomly choose a foreground

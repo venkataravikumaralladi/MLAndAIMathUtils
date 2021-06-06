@@ -163,6 +163,11 @@ class AnnotationJsonUtils():
 
         # Each image may have multiple annotations, so create an array
         self.annotations = []
+        # Check if isolated mask items exist, if not throw warning and conintue.
+        if(len(self.isolated_masks.items()) == 0) :
+            print(f'No mask items for image id : {self.image_id}; annotations are not generated for this image')
+            return
+
         for key, mask in self.isolated_masks.items():
             annotation = dict()
             annotation['segmentation'] = []
