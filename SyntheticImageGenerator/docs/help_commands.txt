@@ -1,0 +1,3 @@
+python ./python/synthetic_image_generator.py --input_dir ./datasets/weeds_synthetic_dataset/input/ --output_dir ./datasets/weeds_synthetic_dataset/output --count 20 --width 512 --height 512 
+
+python ./python/conv_to_coco_json_utils.py -md ./datasets/weeds_synthetic_dataset/output/image_mask_mapping.json -di ./datasets/weeds_synthetic_dataset/output/dataset_info.json
