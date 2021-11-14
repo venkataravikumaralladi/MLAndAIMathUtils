@@ -9,5 +9,5 @@ In case project requirments mentions that input data is in excel file. We have t
 
 We’ll be utilizing four pre-trained super resolution models. EDSR: Enhanced Deep Residual Networks for Single Image Super-Resolution. ESPCN: Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network. FSRCNN: Accelerating the Super-Resolution Convolutional Neural Network and LapSRN: Fast and Accurate Image Super-Resolution with Deep Laplacian Pyramid Network. Super resolution image is stored in `output_imgs' folder 
 
-### Converting super resolution image to csv file for comparsion with input excel file (image_to_csv_data_converter.py)
+### Converting super resolution image to csv file (image_to_csv_data_converter.py)
 Upscaled super resolution image is converted to .csv file. The converted .csv file is used to compare pixel values of input file (.xlsx file). 
