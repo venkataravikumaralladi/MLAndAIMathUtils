@@ -5,6 +5,7 @@ https://github.com/Saafke/EDSR_Tensorflow/tree/master/models <br>
 https://github.com/fannymonori/TF-ESPCN/tree/master/export <br>
 https://github.com/Saafke/FSRCNN_Tensorflow/tree/master/models <br>
 https://github.com/fannymonori/TF-LapSRN/tree/master/export <br>
+We use OpenCV library API's. Here are simple basics of OpenCV. OpenCV represents images as NumPy arrays. OpenCV stores RGB pixels in reverse order, so when we unpack and access each element in the tuple, we are actually viewing them in BGR order.
 
 ### Input data (`.xlsx file`)
 
