@@ -29,4 +29,7 @@ Google page rank algorithm is based on random surfer model. Random surfer who st
        4. New webpage has no links <br>
        5. We want our algorithm to handle typing of webaddress rather then following links. (damping factor) <br>
        6. We want to keep ranks in reasonable range for example in `[0,1)` so we start with rank of 1/N for each url page where N is number of pages in our corpus. <br>
+       
+ #### Refernces
+ Reference: Udacity cs101: Introduction to Computer Science
  
