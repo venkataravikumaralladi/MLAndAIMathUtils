@@ -13,15 +13,15 @@ High level over view of search engine design.
 ![image](https://user-images.githubusercontent.com/10434795/142728176-e4ec2251-4407-4b53-bb57-6ac05c78f473.png)
 
 
-### Webcrawler (class WebCrawler in crawler.py)
+### Webcrawler (class WebCrawler in text_search_engine.py)
 
 For our web crawler, the important thing is to find the links to other web pages in the page. We will start with 'seed' passed as argument by user to start with. We can find those  links by looking for the anchor tags that match this structure: ` <a href="<url>">`. To build our crawler, for each web page we want to find all the link target URLs on the page. We want to keep track of them and follow them to find more content on the web.
 
-### Index building (crawler.py)
+### Index building (text_search_engine.py)
 
 We will build content index by parsing web page content and maintain a dictionary with key word as content and value has list of url's that particular content is present. Index is maintained as hash table for fast retrival and storing.
 
-### Page Ranking algorithm (crawler.py)
+### Page Ranking algorithm (text_search_engine.py)
 Google page rank algorithm is based on random surfer model. Random surfer who starts at a random page and then follows the links at random. The popularity of page is the probability that the random surfer reaches a particular page. Page rank algorithm has to handle following while calculating page rank for a url page. <br>
        1. Number of outlinks for given page. <br>
        2. Number of inlinks for a given page. <br>
