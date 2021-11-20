@@ -1,20 +1,32 @@
-# MLAndAIMathUtils
-Reusable implementations for basic math utilities for machine learning and python
-
-### Identifying singlular matrices (IdentifyingSpecialMatrices.py)
-
-When coding or solving data analysis problems, one problem that can  occur is if your code encounters a special matrix that isn't invertible,  or has an infinite number of eigenvectors, or similar. On other  occasions, for example where you are reducing dimensionality, that might  even be desirable!  So here you will write a code fragment that traps  for different types of special matrices before calling the python  inversion routine, and classifies the type of special case encountered. Idea: While converting matrix to row echolean form if any diagnol element of matrix is zero, we consider matrix as singular. At present implmented for 4 * 4 matrix which can be generalized for any matrix.
-
-### Gram-Schmidt process (GrahmSchmidtOrthonormal.py)
-
-When coding or solving data analysis problems we have to transform given data for example in face recoginiztion we tranform images of faces to generate data from given data. Transformation step involves operations like projection, inverse, transpose  to name a few. These operations are easier to perform if we have basis vector in orthonormal form. Gram-Schmidt process helps us in constructing linearly independent vectors to orthonormal basis vector. This algorithm is implemented in GrahmSchmidtOrthonormal.py
-
-### Image transformation using rotation (ImageTransformationUsingRotation/python/image_rotation_utils.py)
-Data augumentation is technique used to generate images from available images through various tecniques like tranforming images through rotation, changing background color, changing color contrast to name a few. In folder ImageTransformationUsingRotation image roation technique is implemented. We can rotate the image and annotate the blocks programmatically. With this we have additional images which can be used for training. This code is implemented in generic way so that we can give it for any images. Though rotation functionality is implemented in python Albumentations library this functionality is light weight and can be modified according to project. It is interesting
- to know how abstract concepts like eigen vectors, transformation matrices are used in real time projects and strong in concepts helps us in using libraries and debug effectively. (Sample usage of image rotation utils are shared in  ImageTransformationUsingRotation/notebooks/ImageRotationDataAugumentation.ipynb 
+# Search Engine
+Computer science is about how to design solution for problems. Here we will look at idea on how search engine works.Build a search engine by breaking into small problems. Small problems like <br>
+      i.	Find data. This is done by crawling web pages. <br>
+      ii.	Build an index. This helps to respond quickly to search queries. <br>
+      iii.	Rank pages. This helps to get best results for given query. <br>
  
- ### Image processing 
-Image processing folder consists of image processing in python. Here we will see how we can create new images with foreground images on various background images. Along with new images we also generate corresponding image mask which helps us in creating annotation required for various machine learning algorithms. (ImageProcessing/notebook/image-composition.ipynb)
+Text search engine allow people to search a large set of documents for a list of words, and which rank results according to how relevant the documents are to those words. We will look in to idea of "Page Rank" algorithm used by Google which is a revolutionary algorithm in search engine category.
 
- ### SyntheticImageGenerator
- Deep learning is wonderful tool which is changing the world of innovation in particular image applications. Due to the unprecedented need for massive, annotated, image datasets, we have to explore various options in additional to manual image collection and annotation. Data is extremely expensive, either in time or in money to pay others for their time in annotating images. Here we develop a tool which generates synthetic image datasets and annotate generated images in COCO format. This tool is developed by me as part of Omdena project from references mentioned in reference section of README.md in that folder.
+Before Google page rank algorithm:  Before google old search engines did not work well because websites are not polite, they tried to manipulate content to gain rank. For example website mentioned 'resaturant' 32 times in text so they go to top of rank if searched by restaturant keyword thn website which mentioned 'restaurant' 2 times. To avoid this google came up with algorithm which gives rank based on external links rather than content of webpage. <br>
+
+High level over view of search engine design.
+
+![image](https://user-images.githubusercontent.com/10434795/142728176-e4ec2251-4407-4b53-bb57-6ac05c78f473.png)
+
+
+### Webcrawler (class WebCrawler in crawler.py)
+
+For our web crawler, the important thing is to find the links to other web pages in the page. We will start with 'seed' passed as argument by user to start with. We can find those  links by looking for the anchor tags that match this structure: ` <a href="<url>">`. To build our crawler, for each web page we want to find all the link target URLs on the page. We want to keep track of them and follow them to find more content on the web.
+
+### Index building (crawler.py)
+
+We will build content index by parsing web page content and maintain a dictionary with key word as content and value has list of url's that particular content is present. Index is maintained as hash table for fast retrival and storing.
+
+### Page Ranking algorithm (crawler.py)
+Google page rank algorithm is based on random surfer model. Random surfer who starts at a random page and then follows the links at random. The popularity of page is the probability that the random surfer reaches a particular page. Page rank algorithm has to handle following while calculating page rank for a url page. <br>
+       1. Number of outlinks for given page. <br>
+       2. Number of inlinks for a given page. <br>
+       3. Quality of inlinks for a page (i.e, ieee website pointing to your article has most weightage) <br>
+       4. New webpage has no links <br>
+       5. We want our algorithm to handle typing of webaddress rather then following links. (damping factor) <br>
+       6. We want to keep ranks in reasonable range for example in `[0,1)` so we start with rank of 1/N for each url page where N is number of pages in our corpus. <br>
+ 
