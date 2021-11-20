@@ -1,11 +1,7 @@
 """
 File Created: 19th October 2021
 Author: Venkata Ravi K A
-Reference: https://github.com/NitinBirdi/Udacity-cs101-building-a-search-engine
-                Finishing Web Crawl.py
-                Improving The Index.py 
-                Finishing Urank.py 
-           http://www.cs.virginia.edu/~evans/cs101/
+Reference: http://www.cs.virginia.edu/~evans/cs101/
            
            
 My Notes:
